@@ -1,0 +1,152 @@
+(function(){
+  var top=document.getElementById('top'),bg=document.getElementById('burger');
+  function zamknij(){top.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label','Otwórz menu')}
+  bg.addEventListener('click',function(){var o=top.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
+  document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){zamknij();if(document.activeElement)document.activeElement.blur()})});
+  var tk=false;function sc(){if(tk)return;tk=true;requestAnimationFrame(function(){top.classList.toggle('sc',window.pageYOffset>10);tk=false})}
+  addEventListener('scroll',sc,{passive:true});sc();
+  var rok=document.getElementById('rok');if(rok)rok.textContent=new Date().getFullYear();
+
+  /* zabiegi: [nazwa, kategorie, grupa, problemy, sciezka] */
+  var O='https://instytutimage.pl/oferta/',T=O+'zabiegi/zabiegi-na-twarz/',C=O+'zabiegi/zabiegi-na-cialo/',L=O+'zabiegi/zabiegi-laserowe/',M=O+'medycyna-estetyczna/',K=O+'kosmetyka-dodatkowa/';
+  var Z=[
+  ['Oczyszczanie - program zabiegów','tw','Oczyszczanie','q t',T+'oczyszczanie/'],
+  ['Oczyszczanie medyczne','tw','Oczyszczanie','q t',T+'oczyszczanie/oczyszczanie-medyczne/'],
+  ['Oczyszczanie wodorowe','tw','Oczyszczanie','q w',T+'oczyszczanie/oczyszczanie-wodorowe/'],
+  ['Oczyszczanie wodorowe anty-ageing','tw','Oczyszczanie','q z',T+'oczyszczanie/oczyszczanie-wodorowe-anty-ageing/'],
+  ['Oczyszczanie kawitacyjne Cavicleen Express Beauty','tw','Oczyszczanie','q',T+'oczyszczanie/oczyszczanie-kawitacyjne-cavicleen-express-beauty/'],
+  ['Oczyszczanie manualne','tw','Oczyszczanie','q t',T+'oczyszczanie/oczyszczanie-manualne/'],
+  ['Złuszczanie - program zabiegów','tw','Złuszczanie','p w',T+'zluszczanie/'],
+  ['Piling chemiczny - kwas migdałowy','tw','Złuszczanie','t p',T+'zluszczanie/piling-chemiczny-kwas-migdalowy/'],
+  ['Piling chemiczny - kwas salicylowy 15% i migdałowy 15% IBCN','tw','Złuszczanie','t q',T+'zluszczanie/piling-chemiczny-kwas-salicylowy-15-kwas-migdalowy-15-ibcn/'],
+  ['Piling chemiczny anty-ageing IBCN','tw','Złuszczanie','z',T+'zluszczanie/piling-chemiczny-anty-ageing-ibcn/'],
+  ['Piling chemiczny depigmentant IBCN','tw','Złuszczanie','p',T+'zluszczanie/piling-chemiczny-depigmentant-ibcn/'],
+  ['Laserowy piling węglowy Black Doll','tw la','Złuszczanie','q t w',T+'zluszczanie/laserowy-piling-weglowy-black-doll/'],
+  ['Oxybrazja','tw','Złuszczanie','q w',T+'zluszczanie/oxybrazja/'],
+  ['Wiosenne przebudzenie','tw','Złuszczanie','w',T+'zluszczanie/wiosenne-przebudzenie/'],
+  ['Nawilżanie - program zabiegów','tw','Nawilżanie','w',T+'nawilzanie/'],
+  ['Mezoterapia igłowa','tw me','Nawilżanie','w z',T+'nawilzanie/mezoterapia-iglowa/'],
+  ['Mezoterapia mikroigłowa','tw','Nawilżanie','w z b',T+'nawilzanie/mezoterapia-mikroiglowa/'],
+  ['Infuzja tlenowa','tw','Nawilżanie','w',T+'nawilzanie/infuzja-tlenowa/'],
+  ['Mezoterapia bezigłowa Meso Skin EPM','tw','Nawilżanie','w',T+'nawilzanie/mezoterapia-beziglowa-meso-skin-epm/'],
+  ['Mezoterapia bezigłowa Medium Deep','tw','Nawilżanie','w z',T+'nawilzanie/mezoterapia-beziglowa-medium-deep/'],
+  ['Geneo','tw','Nawilżanie','w',T+'nawilzanie/geneo/'],
+  ['Ugasić pragnienie','tw','Nawilżanie','w',T+'nawilzanie/ugasic-pragnienie/'],
+  ['Algowa regeneracja','tw','Nawilżanie','w',T+'nawilzanie/algowa-regeneracja/'],
+  ['Pomidorowy kriolift','tw','Nawilżanie','w z',T+'nawilzanie/pomidorowy-kriolift/'],
+  ['Eliksir życia','tw','Nawilżanie','w z',T+'nawilzanie/eliksir-zycia/'],
+  ['Odmładzanie - program zabiegów','tw','Odmładzanie','z',T+'odmladzanie/'],
+  ['Fotoodmładzanie SSR / IPL','tw la','Odmładzanie','z p n',T+'odmladzanie/fotoodmladzanie-ipl-e-light/'],
+  ['Laserowe odmładzanie i ujędrnianie skóry','tw la','Odmładzanie','z',T+'odmladzanie/laserowe-odmladzanie-i-ujedrnianie-skory/'],
+  ['Frakcjonowanie mikroigłowe RF','tw','Odmładzanie','z b',T+'odmladzanie/frakcjonowanie-mikroiglowe-rf/'],
+  ['Thermalifting skóry RF','tw','Odmładzanie','z',T+'odmladzanie/thermalifting-skory-rf/'],
+  ['Termolifting NIR','tw','Odmładzanie','z',T+'odmladzanie/termolifting-nir/'],
+  ['Lifting skóry','tw','Programy','z',T+'lifting-skory/'],
+  ['SOS dla skóry wrażliwej','tw','Programy','n w',T+'sos-dla-skory-wrazliwej/'],
+  ['Popękane naczynia krwionośne','tw','Programy','n',T+'popekane-naczynia-krwionosne/'],
+  ['Laserowe zamykanie naczyń krwionośnych','tw la','Naczynka','n',T+'popekane-naczynia-krwionosne/laserowe-zamykanie-naczyn-krwionosnych/'],
+  ['Niwelowanie przebarwień','tw','Programy','p',T+'niwelowanie-przebarwien/'],
+  ['Usuwanie przebarwień SSR / IPL','tw la','Przebarwienia','p',T+'niwelowanie-przebarwien/usuwanie-przebarwien-ipl-e-light/'],
+  ['Zabiegi na trądzik różowaty','tw','Programy','t n',T+'zabiegi-na-tradzik-rozowaty/'],
+  ['Usuwanie trądziku różowatego SVR / IPL','tw la','Trądzik różowaty','t n',T+'zabiegi-na-tradzik-rozowaty/usuwanie-tradzika-rozowatego-ipl-e-light/'],
+  ['Zabiegi na trądzik pospolity','tw','Programy','t q',T+'zabiegi-na-tradzik-pospolity/'],
+  ['Usuwanie trądziku pospolitego SSR / IPL','tw la','Trądzik pospolity','t',T+'zabiegi-na-tradzik-pospolity/usuwanie-tradzika-pospolitego-ipl-e-light/'],
+  ['Zabiegi na blizny potrądzikowe','tw','Programy','b t',T+'zabiegi-na-blizny-potradzikowe/'],
+  ['Mezoterapia mikroigłowa - blizny i rozstępy','tw','Blizny','b',T+'zabiegi-na-blizny-potradzikowe/mezoterapia-mikroiglowa-blizny-i-rozstepy/'],
+  ['Pielęgnacja okolic oka','tw','Programy','z w',T+'pielegnacja-okolic-oka/'],
+  ['Zabiegi bankietowe','tw','Programy','w',T+'zabiegi-bankietowe/'],
+  ['Zabiegi dla kobiet w ciąży','tw','Programy','w',T+'zabiegi-dla-kobiet-w-ciazy/'],
+  ['Zabiegi dla pacjentów onkologicznych','tw','Programy','w',T+'zabiegi-dla-pacjentow-onkologicznych/'],
+  ['Masaż Kobido UP','tw','Masaż twarzy','z m',T+'masaz-kobido-up/'],
+  ['Terapia enzymatyczna','tw','Pielęgnacja','q w',T+'terapia-enzymatyczna/'],
+  ['EMR Young','tw','Odmładzanie','z',T+'emr-young/'],
+  ['Modelowanie sylwetki - program','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Rzeźbienie mięśni Magnetic Sculp','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/rzezbienie-miesni-magnetic-sculp/'],
+  ['Fala uderzeniowa DJ Medical','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/fala-uderzeniowa-dj-medical/'],
+  ['Lipodermologia Elite Shape','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/lipodermologia-elite-shape/'],
+  ['Kriolipoliza Lipo Freeze 4D','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/kriolipoliza-lipo-freeze-4-d/'],
+  ['Thermalipoliza ciała RF','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/thermalipoliza-ciala-rf/'],
+  ['Lipokawitacja Lipo X','ci','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/lipokawitacja-lipo-x/'],
+  ['Maderoterapia','ci','Modelowanie sylwetki','c m',C+'modelowanie-sylwetki/maderoterapia/'],
+  ['Redukcja cellulitu','ci','Programy','c',C+'redukcja-cellulitu/'],
+  ['Winne drenowanie','ci','Cellulit','c m',C+'redukcja-cellulitu/winne-drenowanie/'],
+  ['Redukcja tkanki tłuszczowej','ci','Programy','c',C+'redukcja-tkanki-tluszczowej/'],
+  ['Redukcja rozstępów i blizn','ci','Programy','b',C+'redukcja-rozstepow-blizn/'],
+  ['Ujędrnianie ciała','ci','Programy','z c',C+'ujedrnianie-ciala/'],
+  ['Likwidacja obrzęków','ci','Programy','c',C+'likwidacja-obrzekow/'],
+  ['Masaże ciała','ci','Masaże','m',C+'masaze-ciala/'],
+  ['Masaż relaksacyjny','ci','Masaże','m',C+'masaze-ciala/masaz-relaksacyjny/'],
+  ['Masaż Lomi Lomi z aromatyczną świecą','ci','Masaże','m',C+'masaze-ciala/masaz-lomi-lomi-aromatyczna-swieca/'],
+  ['Masaż ciepłymi stemplami winogronowymi','ci','Masaże','m',C+'masaze-ciala/masaz-cieplymi-stemplami-winogronowymi/'],
+  ['Masaż ajurwedyjski','ci','Masaże','m',C+'masaze-ciala/masaz-ajurwedyjski/'],
+  ['Epilacja laserowa','ci la','Depilacja','o',C+'epilacja-laserowa/'],
+  ['Depilacja woskiem','ci','Depilacja','o',C+'depilacja-woskiem/'],
+  ['Laser frakcyjny CO2','la','Lasery','z b',L+'laser-frakcyjny-co-2/'],
+  ['Laser tulowy','la','Lasery','z p w',L+'laser-tulowy/'],
+  ['Resurfacing laserem pikosekundowym','la','Lasery','p z b',L+'resurfacing-laserm-pikosekundowym/'],
+  ['Laserowe usuwanie tatuażu i makijażu permanentnego','la','Lasery','r',L+'laserowe-usuwanie-tatuazu-i-makijazu-permanentnego/'],
+  ['Zmarszczki mimiczne - toksyna botulinowa','me','Medycyna estetyczna','z',M+'zmarszczki-mimiczne-botox/'],
+  ['Lifting wolumetryczny i wypełnianie zmarszczek','me','Medycyna estetyczna','z',M+'lifting-volumetryczny/'],
+  ['Modelowanie ust','me','Medycyna estetyczna','z w',M+'modelowanie-ust/'],
+  ['Osocze bogatopłytkowe','me','Medycyna estetyczna','z w',M+'osocze-bogatoplytkowe/'],
+  ['Fibryna bogatopłytkowa','me','Medycyna estetyczna','z',M+'fibryna-bogatoplytkowa/'],
+  ['Stymulatory tkankowe','me','Medycyna estetyczna','z',M+'stymulatory-tkankowe/'],
+  ['Leczenie nadpotliwości','me','Medycyna estetyczna','',M+'leczenie-nadpotliwosci/'],
+  ['Henna brwi i rzęs','ko','Brwi i rzęsy','r',K+'henna-brwi-i-rzes/'],
+  ['Henna pudrowa z geometrią brwi','ko','Brwi i rzęsy','r',K+'henna-pudrowa-z-geometria-brwi/'],
+  ['Laminacja brwi','ko','Brwi i rzęsy','r',K+'laminacja-brwi/'],
+  ['Lifting, botox i laminacja rzęs','ko','Brwi i rzęsy','r',K+'lifting-botox-laminacja-rzes/'],
+  ['Przebicie uszu','ko','Kosmetyka','',K+'przebicie-uszu/']
+  ];
+  var NK={tw:'Na twarz',ci:'Na ciało',la:'Laserowe',me:'Medycyna estetyczna',ko:'Kosmetyka'};
+  var st={k:'',p:'',q:'',all:false},lista=document.getElementById('lista'),wynik=document.getElementById('wynik'),wiecej=document.getElementById('wiecej'),q=document.getElementById('q');
+  var tabs=[].slice.call(document.querySelectorAll('#tabs button')),chips=[].slice.call(document.querySelectorAll('#chips button'));
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l')}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  tabs.forEach(function(b){var k=b.dataset.k;if(k){var n=Z.filter(function(z){return z[1].split(' ').indexOf(k)>-1}).length;b.insertAdjacentHTML('beforeend',' <i>'+n+'</i>')}});
+  function rysuj(){
+    var nq=norm(st.q.trim());
+    var w=Z.filter(function(z){return (!st.k||z[1].split(' ').indexOf(st.k)>-1)&&(!st.p||z[3].split(' ').indexOf(st.p)>-1)&&(!nq||norm(z[0]+' '+z[2]).indexOf(nq)>-1)});
+    var lim=(st.all||st.k||st.p||nq)?w.length:Math.min(w.length,matchMedia('(max-width:860px)').matches?8:15);
+    var h='';for(var i=0;i<lim;i++){var z=w[i];h+='<a href="'+z[4]+'" target="_blank" rel="noopener"><b>'+esc(z[0])+'</b><span>'+NK[z[1].split(' ')[0]]+' · '+esc(z[2])+'</span></a>'}
+    lista.innerHTML=h||'<div class="brak">Brak zabiegów dla tego wyboru. Zadzwoń: +48 662 497 510 - doradzimy na konsultacji kosmetologicznej.</div>';
+    wynik.textContent='Wyświetlono '+lim+' z '+w.length+(w.length===1?' zabiegu':' zabiegów');
+    wiecej.hidden=lim>=w.length;wiecej.textContent='Pokaż wszystkie ('+w.length+')';
+  }
+  function ustawK(k){st.k=k;tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.k===k)});rysuj()}
+  tabs.forEach(function(b){b.addEventListener('click',function(){ustawK(b.dataset.k)})});
+  chips.forEach(function(b){b.addEventListener('click',function(){var p=b.dataset.p;st.p=st.p===p?'':p;chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.p===st.p)});rysuj()})});
+  q.addEventListener('input',function(){st.q=q.value;rysuj()});
+  wiecej.addEventListener('click',function(){st.all=true;rysuj()});
+  document.querySelectorAll('a[data-k]').forEach(function(a){a.addEventListener('click',function(){ustawK(a.dataset.k)})});
+  rysuj();
+
+  if('IntersectionObserver' in window){
+    var links=[].slice.call(document.querySelectorAll('.menu>a[href^="#"]:not(.btn),.menu>.mm>a'));
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    ['start','zabiegi','kategorie','voucher','o-nas','zespol','blog','kontakt'].forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t)});
+    var mob=document.getElementById('mob');
+    new IntersectionObserver(function(es){mob.classList.toggle('widac',!es[0].isIntersecting&&es[0].boundingClientRect.top<0)},{threshold:0}).observe(document.querySelector('.hero .cta'));
+    var m=document.getElementById('mapa');
+    var mo=new IntersectionObserver(function(es){if(es[0].isIntersecting){var f=document.createElement('iframe');f.src=m.dataset.src;f.title=m.dataset.t;f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';m.appendChild(f);mo.disconnect()}},{rootMargin:'300px'});mo.observe(m);
+  }
+
+  document.querySelectorAll('[data-tor]').forEach(function(tor){
+    var down=false,sx=0,sl=0,moved=false;
+    function step(){var k=tor.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(tor).columnGap||0):300}
+    tor.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||tor.scrollWidth<=tor.clientWidth+2)return;down=true;moved=false;sx=e.clientX;sl=tor.scrollLeft});
+    addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=true;tor.classList.add('drag')}tor.scrollLeft=sl-dx});
+    addEventListener('pointerup',function(){if(!down)return;down=false;tor.classList.remove('drag');if(moved){var w=step();tor.scrollTo({left:Math.round(tor.scrollLeft/w)*w,behavior:'smooth'})}setTimeout(function(){moved=false},0)});
+    tor.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+    tor.addEventListener('dragstart',function(e){e.preventDefault()});
+    var nav=document.querySelector('[data-nav="'+tor.id+'"]');
+    if(nav){var bs=nav.querySelectorAll('button');
+      bs.forEach(function(b){b.addEventListener('click',function(){tor.scrollBy({left:step()*(+b.dataset.k),behavior:'smooth'})})});
+      function vis(){nav.style.visibility=tor.scrollWidth>tor.clientWidth+4?'visible':'hidden'}vis();addEventListener('resize',vis)}
+  });
+
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+  document.querySelectorAll('[data-lb]').forEach(function(b){b.addEventListener('click',function(){lbi.src=b.dataset.lb;lb.classList.add('on')})});
+  lb.addEventListener('click',function(){lb.classList.remove('on')});
+  addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+})();
