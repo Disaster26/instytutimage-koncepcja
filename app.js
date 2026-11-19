@@ -2,7 +2,15 @@
   var top=document.getElementById('top'),bg=document.getElementById('burger');
   function zamknij(){top.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label','Otwórz menu')}
   bg.addEventListener('click',function(){var o=top.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
-  document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){zamknij();if(document.activeElement)document.activeElement.blur()})});
+  document.querySelectorAll('.menu a:not(#mmBtn)').forEach(function(a){a.addEventListener('click',function(){zamknij();if(document.activeElement)document.activeElement.blur()})});
+  var mm=document.getElementById('mm'),mb=document.getElementById('mmBtn'),mt=null,mqm=matchMedia('(max-width:1180px)');
+  function mOpen(o){clearTimeout(mt);mm.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)}
+  mm.addEventListener('mouseenter',function(){if(!mqm.matches)mOpen(true)});
+  mm.addEventListener('mouseleave',function(){if(mqm.matches)return;clearTimeout(mt);mt=setTimeout(function(){mOpen(false)},300)});
+  mb.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();mOpen(!mm.classList.contains('open'))});
+  document.addEventListener('click',function(e){if(!mm.contains(e.target))mOpen(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mm.classList.contains('open')){mOpen(false);mb.focus()}});
+  mm.querySelectorAll('.mega a').forEach(function(a){a.addEventListener('click',function(){mOpen(false)})});
   var tk=false;function sc(){if(tk)return;tk=true;requestAnimationFrame(function(){top.classList.toggle('sc',window.pageYOffset>10);tk=false})}
   addEventListener('scroll',sc,{passive:true});sc();
   var rok=document.getElementById('rok');if(rok)rok.textContent=new Date().getFullYear();
@@ -98,7 +106,10 @@
   ['Lifting, botox i laminacja rzęs','kd','Brwi i rzęsy','r',K+'lifting-botox-laminacja-rzes/'],
   ['Przebicie uszu','kd','Kosmetyka','',K+'przebicie-uszu/']
   ];
+  var PG={'Zmarszczki mimiczne - toksyna botulinowa':'toksyna-botulinowa.html','Laser frakcyjny CO2':'laser-frakcyjny-co2.html','Oczyszczanie wodorowe':'oczyszczanie-wodorowe.html','Rzeźbienie mięśni Magnetic Sculp':'magnetic-sculp.html','Kriolipoliza Lipo Freeze 4D':'kriolipoliza.html','Masaż Lomi Lomi z aromatyczną świecą':'masaz-lomi-lomi.html','Henna pudrowa z geometrią brwi':'henna-pudrowa.html','Popękane naczynia krwionośne':'problem-naczynka.html','Niwelowanie przebarwień':'problem-przebarwienia.html','Redukcja cellulitu':'problem-cellulit.html','Zabiegi na blizny potrądzikowe':'problem-blizny.html','Pielęgnacja okolic oka':'problem-okolice-oczu.html'};
+  var CP={me:'medycyna-estetyczna.html',la:'zabiegi-laserowe.html',ks:'kosmetologia.html',ms:'modelowanie-sylwetki.html',sp:'relaks-spa.html',kd:'kosmetyka-dodatkowa.html',tp:'twoj-problem.html'};
   var NK={me:'Medycyna estetyczna',la:'Zabiegi laserowe',ks:'Kosmetologia',ms:'Modelowanie sylwetki',sp:'Relaks i SPA',kd:'Kosmetyka dodatkowa',tp:'Twój problem'};
+  if(document.getElementById('lista')){
   var st={k:'',p:'',q:'',all:false},lista=document.getElementById('lista'),wynik=document.getElementById('wynik'),wiecej=document.getElementById('wiecej'),q=document.getElementById('q');
   var tabs=[].slice.call(document.querySelectorAll('#tabs button')),chips=[].slice.call(document.querySelectorAll('#chips button'));
   function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l')}
@@ -108,7 +119,7 @@
     var nq=norm(st.q.trim());
     var w=Z.filter(function(z){return (!st.k||z[1].split(' ').indexOf(st.k)>-1)&&(!st.p||z[3].split(' ').indexOf(st.p)>-1)&&(!nq||norm(z[0]+' '+z[2]).indexOf(nq)>-1)});
     var lim=(st.all||st.k||st.p||nq)?w.length:Math.min(w.length,matchMedia('(max-width:860px)').matches?6:9);
-    var h='';for(var i=0;i<lim;i++){var z=w[i];h+='<a href="'+z[4]+'" target="_blank" rel="noopener"><b>'+esc(z[0])+'</b><span>'+NK[z[1].split(' ')[0]]+' · '+esc(z[2])+'</span></a>'}
+    var h='';for(var i=0;i<lim;i++){var z=w[i];h+='<a href="'+(PG[z[0]]||CP[z[1].split(' ')[0]])+'"><b>'+esc(z[0])+'</b><span>'+NK[z[1].split(' ')[0]]+' · '+esc(z[2])+'</span></a>'}
     lista.innerHTML=h||'<div class="brak">Brak zabiegów dla tego wyboru. Zadzwoń: +48 662 497 510 - doradzimy na konsultacji kosmetologicznej.</div>';
     wynik.textContent='Wyświetlono '+lim+' z '+w.length+(w.length===1?' zabiegu':' zabiegów');
     wiecej.hidden=lim>=w.length;wiecej.textContent='Pokaż wszystkie ('+w.length+')';
@@ -120,15 +131,16 @@
   wiecej.addEventListener('click',function(){st.all=true;rysuj()});
   document.querySelectorAll('a[data-k]').forEach(function(a){a.addEventListener('click',function(){ustawK(a.dataset.k)})});
   rysuj();
+  }
 
   if('IntersectionObserver' in window){
     var links=[].slice.call(document.querySelectorAll('.menu>a[href^="#"]:not(.btn),.menu>.mm>a'));
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
     ['start','la','kategorie','voucher','o-nas','zespol','blog','kontakt'].forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t)});
     var mob=document.getElementById('mob');
-    new IntersectionObserver(function(es){mob.classList.toggle('widac',!es[0].isIntersecting&&es[0].boundingClientRect.top<0)},{threshold:0}).observe(document.querySelector('.hero .cta'));
+    var hc=document.querySelector('.hero .cta');if(hc){new IntersectionObserver(function(es){mob.classList.toggle('widac',!es[0].isIntersecting&&es[0].boundingClientRect.top<0)},{threshold:0}).observe(hc)}else{mob.classList.add('widac')}
     var m=document.getElementById('mapa');
-    var mo=new IntersectionObserver(function(es){if(es[0].isIntersecting){var f=document.createElement('iframe');f.src=m.dataset.src;f.title=m.dataset.t;f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';m.appendChild(f);mo.disconnect()}},{rootMargin:'300px'});mo.observe(m);
+    if(m){var mo=new IntersectionObserver(function(es){if(es[0].isIntersecting){var f=document.createElement('iframe');f.src=m.dataset.src;f.title=m.dataset.t;f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';m.appendChild(f);mo.disconnect()}},{rootMargin:'300px'});mo.observe(m)}
   }
 
   document.querySelectorAll('[data-tor]').forEach(function(tor){
@@ -152,8 +164,18 @@
   if(vf){var vk=document.getElementById('vkw'),vz=document.getElementById('vzab'),vt=document.getElementById('vtyp');
     function vtyp(){var z=vt.value==='z';vk.hidden=z;vz.hidden=!z}vt.addEventListener('change',vtyp);vtyp();
     vf.addEventListener('submit',function(e){e.preventDefault();var n='IMG-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*90000)+10000);document.getElementById('vmsg').textContent='Podgląd: płatność jest tu wyłączona. Na stronie docelowej po opłaceniu voucher nr '+n+' z imieniem, nazwiskiem i telefonem osoby obdarowanej trafi na e-mail kupującego, a recepcja dostanie powiadomienie z tymi danymi.'})}
-  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');if(lb){
   document.querySelectorAll('[data-lb]').forEach(function(b){b.addEventListener('click',function(){lbi.src=b.dataset.lb;lb.classList.add('on')})});
   lb.addEventListener('click',function(){lb.classList.remove('on')});
-  addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+  addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});}
+  var cq=document.getElementById('cq');
+  if(cq){var cc=[].slice.call(document.querySelectorAll('#cchips button')),rows=[].slice.call(document.querySelectorAll('.cfull .cpoz')),grs=[].slice.call(document.querySelectorAll('.cfull .cgr')),cbr=document.getElementById('cbrak'),ck='';
+    function cnorm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l')}
+    function cf(){var q=cnorm(cq.value.trim()),n=0;rows.forEach(function(r){var ok=(!ck||r.dataset.c===ck)&&(!q||cnorm(r.textContent).indexOf(q)>-1);r.hidden=!ok;if(ok)n++});grs.forEach(function(g){g.hidden=!g.querySelector('.cpoz:not([hidden])')});cbr.hidden=n>0}
+    cq.addEventListener('input',cf);
+    cc.forEach(function(b){b.addEventListener('click',function(){ck=b.dataset.c;cc.forEach(function(x){x.setAttribute('aria-pressed',x===b)});cf()})});}
+  var vp=document.getElementById('vprev');
+  if(vp){var vf2=document.getElementById('vform'),vnr=document.getElementById('vnr'),nr='IMG-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*90000)+10000);vnr.textContent=nr;
+    function vupd(){var t=document.getElementById('vtyp').value==='z';document.getElementById('vpw').textContent=t?document.querySelector('#vzab select').value:document.querySelector('#vkw select').value;var im=document.getElementById('vimie').value.trim();document.getElementById('vpo').textContent=im||'Imię i nazwisko osoby obdarowanej'}
+    vf2.addEventListener('input',vupd);vf2.addEventListener('change',vupd);vupd();}
 })();
