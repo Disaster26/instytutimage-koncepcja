@@ -56,7 +56,7 @@ p{margin:0 0 1em}
 .mega b a{font:inherit;color:inherit;padding:0}
 .mega{position:fixed;left:0;right:0;top:var(--hh);background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 30px 50px -30px rgba(23,19,15,.35);padding:34px 0 38px;display:none}
 .mm:hover .mega,.mm:focus-within .mega{display:block}
-.mega .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;height:auto;align-items:start}
+.mega .wrap{display:grid;grid-template-columns:repeat(7,1fr);gap:28px;height:auto;align-items:start}
 .mega b{display:block;font-family:Cormorant,"Cormorant-fb",serif;font-size:25px;font-weight:600;margin-bottom:10px;color:var(--zl2)}
 .mega a{display:block;text-decoration:none;font-weight:500;font-size:15px;color:var(--mut);padding:3px 0}
 .mega a:hover{color:var(--ink)}
@@ -92,7 +92,7 @@ p{margin:0 0 1em}
 .hero p.lead{font-size:clamp(17px,.5vw + 15px,23px);max-width:44ch;margin:0 0 26px;color:#f1ece6}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px}
 .rail{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.22);background:rgba(21,18,15,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.rail .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:0}
+.rail .wrap{display:grid;grid-template-columns:repeat(7,auto);padding:0}
 .rail a{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:20px 22px 20px 0;text-decoration:none;color:#fff;border-right:1px solid rgba(255,255,255,.18);margin-right:22px;font-weight:600;font-size:clamp(15px,.3vw + 14px,18px)}
 .rail a:last-child{border-right:0;margin-right:0}
 .rail a span{color:var(--zl3);font-weight:700;font-size:.9em}
@@ -198,6 +198,7 @@ section{padding:clamp(64px,6vw,128px) 0}
 @media (max-width:520px){.wart{grid-template-columns:1fr}}
 /* zespol */
 .tor.zesp{grid-auto-columns:calc((100% - 6*20px)/7)}
+.osoba b{font-size:15px}.osoba span{font-size:14px}
 .osoba figure{margin:0 0 12px;aspect-ratio:1;overflow:hidden;background:#ddd}
 .osoba figure img{width:100%;height:100%;object-fit:cover}
 .osoba b{display:block;font-size:16.5px}
@@ -237,6 +238,44 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
 .dol{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:30px;padding-top:20px;font-size:14px}
 @media (max-width:860px){.st{grid-template-columns:1fr 1fr}.st>div:first-child{grid-column:1/-1}}
 
+.um{position:relative}
+.um>.btn{gap:8px}
+.um .pop{display:none;position:absolute;right:0;top:100%;padding-top:10px;min-width:280px;z-index:5}
+.um .pop>div{background:#fff;border:1px solid var(--line);box-shadow:0 24px 40px -24px rgba(23,19,15,.4);padding:8px}
+.um:hover .pop,.um:focus-within .pop{display:block}
+.um .pop a{display:flex;flex-direction:column;text-decoration:none;padding:12px 14px;border-bottom:1px solid var(--line)}
+.um .pop a:last-child{border-bottom:0}
+.um .pop a:hover{background:var(--g)}
+.um .pop b{font-size:16px}
+.um .pop small{font-size:13px;color:var(--mut);font-weight:500}
+@media (max-width:1180px){.um{margin-top:22px}.um>.btn{display:none}.um .pop{display:block;position:static;padding:0;min-width:0}.um .pop>div{box-shadow:none;padding:0;border:0;display:grid;gap:10px}.um .pop a{background:var(--zl);color:#fff;border:0;align-items:center;text-align:center}.um .pop a:last-child{background:var(--ciem)}.um .pop a small{color:#efe7da}}
+.cen-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.cen-tabs button{font:inherit;font-size:15px;font-weight:600;padding:10px 16px;border:1px solid #cfd3d8;background:#fff;color:var(--ink);border-radius:2px;cursor:pointer}
+.cen-tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cpanel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,3vw,70px)}
+.cpanel[hidden]{display:none}
+.cpoz{display:flex;align-items:baseline;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+.cpoz span{flex:1;min-width:0}
+.cpoz span small{display:block;font-size:14px;color:var(--mut)}
+.cpoz b{white-space:nowrap;color:var(--zl2);font-size:1.05em}
+.cen-dol{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;font-size:15px;color:var(--mut)}
+.cen-dol .pdf{display:flex;flex-wrap:wrap;gap:8px 18px}
+.cen-dol .pdf a{color:var(--zl2);font-weight:700}
+@media (max-width:760px){.cpanel{grid-template-columns:1fr}}
+.vform{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin:26px 0 10px;padding:22px;border:1px solid var(--line);background:#fff}
+.vform label{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.vform label[hidden]{display:none}
+.vform .cala{grid-column:1/-1}
+.vform input,.vform select{display:block;margin-top:6px;font:inherit;font-size:16px;font-weight:500;padding:12px 14px;border:1px solid #cfd3d8;border-radius:2px;background:#fff;color:var(--ink);width:100%}
+.vform input:focus,.vform select:focus{outline:2px solid var(--zl);outline-offset:-1px}
+.vform .gw{color:var(--zl2)}
+.vform .info{grid-column:1/-1;font-size:14px;color:var(--mut);margin:0}
+.vform .btn{grid-column:1/-1;justify-self:start}
+.vmsg{font-size:14px;color:var(--zl2);font-weight:600;min-height:1em;margin:0 0 6px}
+@media (max-width:620px){.vform{grid-template-columns:1fr;padding:18px}.vform .btn{justify-self:stretch}}
+.zesp-intro{color:var(--mut);max-width:60ch;margin:-6px 0 22px;font-size:15px}
+.kont .przyc{display:flex;flex-wrap:wrap;gap:12px}
+
 .wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
 .wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
 .wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
@@ -267,19 +306,26 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
   <nav class="menu" aria-label="Menu główne">
    <div class="mm"><a href="#zabiegi">Zabiegi<i class="ch"></i></a>
     <div class="mega"><div class="wrap">
-     <div><b><a href="#zabiegi" data-k="tw">Na twarz</a></b><a href="#zabiegi" data-k="tw">Oczyszczanie</a><a href="#zabiegi" data-k="tw">Złuszczanie</a><a href="#zabiegi" data-k="tw">Nawilżanie</a><a href="#zabiegi" data-k="tw">Odmładzanie i lifting</a><a href="#zabiegi" data-k="tw">Trądzik, blizny, przebarwienia</a><small>50 podstron</small></div>
-     <div><b><a href="#zabiegi" data-k="ci">Na ciało</a></b><a href="#zabiegi" data-k="ci">Modelowanie sylwetki</a><a href="#zabiegi" data-k="ci">Cellulit i tkanka tłuszczowa</a><a href="#zabiegi" data-k="ci">Rozstępy i blizny</a><a href="#zabiegi" data-k="ci">Masaże ciała</a><a href="#zabiegi" data-k="ci">Depilacja i epilacja</a><small>21 podstron</small></div>
-     <div><b><a href="#zabiegi" data-k="la">Laserowe</a></b><a href="#zabiegi" data-k="la">Laser frakcyjny CO2</a><a href="#zabiegi" data-k="la">Laser tulowy</a><a href="#zabiegi" data-k="la">Laser pikosekundowy</a><a href="#zabiegi" data-k="la">Usuwanie tatuażu</a><a href="#zabiegi" data-k="la">IPL / SSR</a><small>12 zabiegów</small></div>
-     <div><b><a href="#zabiegi" data-k="me">Medycyna estetyczna</a></b><a href="#zabiegi" data-k="me">Toksyna botulinowa</a><a href="#zabiegi" data-k="me">Lifting wolumetryczny</a><a href="#zabiegi" data-k="me">Modelowanie ust</a><a href="#zabiegi" data-k="me">Osocze i fibryna</a><a href="#zabiegi" data-k="me">Stymulatory tkankowe</a><small>7 podstron</small></div>
-     <div><b><a href="#zabiegi" data-k="ko">Kosmetyka dodatkowa</a></b><a href="#zabiegi" data-k="ko">Henna brwi i rzęs</a><a href="#zabiegi" data-k="ko">Laminacja brwi</a><a href="#zabiegi" data-k="ko">Lifting rzęs</a><a href="#zabiegi" data-k="ko">Przebicie uszu</a><small>5 podstron</small></div>
+     <div><b><a href="#zabiegi" data-k="me">Medycyna estetyczna</a></b><a href="#zabiegi" data-k="me">Toksyna botulinowa</a><a href="#zabiegi" data-k="me">Lifting wolumetryczny</a><a href="#zabiegi" data-k="me">Modelowanie ust</a><a href="#zabiegi" data-k="me">Osocze i fibryna</a><a href="#zabiegi" data-k="me">Stymulatory tkankowe</a><small>8 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="la">Zabiegi laserowe</a></b><a href="#zabiegi" data-k="la">Laser frakcyjny CO2</a><a href="#zabiegi" data-k="la">Laser tulowy</a><a href="#zabiegi" data-k="la">Laser pikosekundowy</a><a href="#zabiegi" data-k="la">Usuwanie tatuażu</a><a href="#zabiegi" data-k="la">Epilacja laserowa</a><small>12 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="ks">Kosmetologia</a></b><a href="#zabiegi" data-k="ks">Oczyszczanie skóry</a><a href="#zabiegi" data-k="ks">Peelingi chemiczne</a><a href="#zabiegi" data-k="ks">Mezoterapia</a><a href="#zabiegi" data-k="ks">Geneo, infuzja tlenowa</a><a href="#zabiegi" data-k="ks">RF i lifting bez igieł</a><small>38 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="ms">Modelowanie sylwetki</a></b><a href="#zabiegi" data-k="ms">Magnetic Sculp</a><a href="#zabiegi" data-k="ms">Fala uderzeniowa</a><a href="#zabiegi" data-k="ms">Kriolipoliza</a><a href="#zabiegi" data-k="ms">Lipodermologia</a><a href="#zabiegi" data-k="ms">Maderoterapia</a><small>9 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="sp">Relaks i SPA</a></b><a href="#zabiegi" data-k="sp">Masaż relaksacyjny</a><a href="#zabiegi" data-k="sp">Lomi Lomi</a><a href="#zabiegi" data-k="sp">Stemple winogronowe</a><a href="#zabiegi" data-k="sp">Masaż ajurwedyjski</a><a href="#zabiegi" data-k="sp">Kobido UP</a><small>6 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="kd">Kosmetyka dodatkowa</a></b><a href="#zabiegi" data-k="kd">Henna brwi i rzęs</a><a href="#zabiegi" data-k="kd">Laminacja brwi</a><a href="#zabiegi" data-k="kd">Lifting rzęs</a><a href="#zabiegi" data-k="kd">Depilacja woskiem</a><a href="#zabiegi" data-k="kd">Przebicie uszu</a><small>6 zabiegów</small></div>
+     <div><b><a href="#zabiegi" data-k="tp">Twój problem</a></b><a href="#zabiegi" data-k="tp">Naczynka i trądzik różowaty</a><a href="#zabiegi" data-k="tp">Przebarwienia</a><a href="#zabiegi" data-k="tp">Blizny potrądzikowe</a><a href="#zabiegi" data-k="tp">Cellulit i tkanka tłuszczowa</a><a href="#zabiegi" data-k="tp">Okolice oczu</a><small>16 programów</small></div>
     </div></div>
    </div>
+   <a href="#cennik">Cennik</a>
    <a href="#voucher">Vouchery</a>
-   <a href="#o-nas">O nas</a>
-   <a href="#zespol">Zespół</a>
+   <a href="#o-nas">O nas i zespół</a>
    <a href="#blog">Blog</a>
    <a href="#kontakt">Kontakt</a>
-   <a class="btn" href="tel:+48662497510">Umów wizytę</a>
+   <div class="um"><a class="btn" href="#kontakt">Umów wizytę</a>
+    <div class="pop"><div>
+     <a href="https://booksy.com/pl-pl/100915_image-instytut-kosmetologii-i-medycyny-estetycznej_inni_17089_konin" target="_blank" rel="noopener"><b>Rezerwacja online</b><small>przez Booksy, o każdej porze</small></a>
+     <a href="tel:+48662497510"><b>Zadzwoń: 662 497 510</b><small>pn-pt 9-20, sobota 8-14</small></a>
+    </div></div>
+   </div>
   </nav>
   <button class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
@@ -295,14 +341,16 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
   <h1>Medycyna estetyczna i kosmetologia w Koninie</h1>
   <svg class="linia" aria-hidden="true"><use href="#lin"/></svg>
   <p class="lead">Podkreślamy piękno bez zmiany rysów twarzy. Od 1997 roku, w miejscu pełnym ciepła i zrozumienia.</p>
-  <div class="cta"><a class="btn" href="#zabiegi">Znajdź swój zabieg <svg aria-hidden="true"><use href="#str"/></svg></a><a class="btn jasny" href="#voucher">Kup voucher</a></div>
+  <div class="cta"><a class="btn" href="https://booksy.com/pl-pl/100915_image-instytut-kosmetologii-i-medycyny-estetycznej_inni_17089_konin" target="_blank" rel="noopener">Umów wizytę online <svg aria-hidden="true"><use href="#str"/></svg></a><a class="btn jasny" href="tel:+48662497510">Zadzwoń: 662 497 510</a></div>
  </div>
  <nav class="rail" aria-label="Kategorie zabiegów"><div class="wrap">
-  <a href="#zabiegi" data-k="tw">Na twarz <span>50</span></a>
-  <a href="#zabiegi" data-k="ci">Na ciało <span>21</span></a>
+  <a href="#zabiegi" data-k="me">Medycyna estetyczna <span>8</span></a>
   <a href="#zabiegi" data-k="la">Laserowe <span>12</span></a>
-  <a href="#zabiegi" data-k="me">Medycyna estetyczna <span>7</span></a>
-  <a href="#zabiegi" data-k="ko">Kosmetyka <span>5</span></a>
+  <a href="#zabiegi" data-k="ks">Kosmetologia <span>38</span></a>
+  <a href="#zabiegi" data-k="ms">Modelowanie sylwetki <span>9</span></a>
+  <a href="#zabiegi" data-k="sp">Relaks i SPA <span>6</span></a>
+  <a href="#zabiegi" data-k="kd">Kosmetyka dodatkowa <span>6</span></a>
+  <a href="#zabiegi" data-k="tp">Twój problem <span>16</span></a>
  </div></nav>
 </section>
 
@@ -315,11 +363,11 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
 
 <section id="zabiegi">
  <div class="wrap">
-  <div class="glowa"><div><h2>Znajdź zabieg</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><p>Wszystkie zabiegi z obecnej strony w jednym miejscu. Wybierz kategorię, zaznacz problem, z którym przychodzisz, albo wpisz nazwę zabiegu.</p></div>
+  <div class="glowa"><div><h2>Znajdź zabieg</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><p>Wybierz dział, swój problem albo wpisz nazwę zabiegu.</p></div>
   <div class="szukaj">
    <div class="filtr">
     <label class="pole"><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Szukaj zabiegu</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l6 6"/></svg><input id="q" type="search" placeholder="np. mezoterapia, laser, brwi" autocomplete="off"></label>
-    <h3>Z czym przychodzisz?</h3>
+    <h3>Twój problem</h3>
     <div class="chips" id="chips">
      <button type="button" data-p="z" aria-pressed="false">Zmarszczki i wiotkość</button>
      <button type="button" data-p="p" aria-pressed="false">Przebarwienia</button>
@@ -337,11 +385,13 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
    <div>
     <div class="kat-tabs" role="tablist" id="tabs">
      <button role="tab" data-k="" aria-selected="true">Wszystkie <i>87</i></button>
-     <button role="tab" data-k="tw" aria-selected="false">Na twarz</button>
-     <button role="tab" data-k="ci" aria-selected="false">Na ciało</button>
-     <button role="tab" data-k="la" aria-selected="false">Laserowe</button>
      <button role="tab" data-k="me" aria-selected="false">Medycyna estetyczna</button>
-     <button role="tab" data-k="ko" aria-selected="false">Kosmetyka dodatkowa</button>
+     <button role="tab" data-k="la" aria-selected="false">Laserowe</button>
+     <button role="tab" data-k="ks" aria-selected="false">Kosmetologia</button>
+     <button role="tab" data-k="ms" aria-selected="false">Modelowanie sylwetki</button>
+     <button role="tab" data-k="sp" aria-selected="false">Relaks i SPA</button>
+     <button role="tab" data-k="kd" aria-selected="false">Kosmetyka dodatkowa</button>
+     <button role="tab" data-k="tp" aria-selected="false">Twój problem</button>
     </div>
     <div class="wynik" id="wynik" aria-live="polite"></div>
     <div class="lista" id="lista"></div>
@@ -353,32 +403,56 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
 
 <section class="szary" id="kategorie">
  <div class="wrap">
-  <div class="glowa"><div><h2>Pięć dróg do pięknej skóry</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><div class="nav-tor" data-nav="torK"><button type="button" data-k="-1" aria-label="Poprzednie"><svg viewBox="0 0 22 12" style="transform:scaleX(-1)"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button><button type="button" data-k="1" aria-label="Następne"><svg viewBox="0 0 22 12"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button></div></div>
+  <div class="glowa"><div><h2>Nasza oferta</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><div class="nav-tor" data-nav="torK"><button type="button" data-k="-1" aria-label="Poprzednie"><svg viewBox="0 0 22 12" style="transform:scaleX(-1)"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button><button type="button" data-k="1" aria-label="Następne"><svg viewBox="0 0 22 12"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button></div></div>
   <div class="tor" id="torK" data-tor>
-   <a class="kat" href="#zabiegi" data-k="tw"><figure><img src="img/k-twarz-420.webp" srcset="img/k-twarz-420.webp 420w, img/k-twarz-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg pielęgnacyjny na twarz" loading="lazy"></figure><h3>Zabiegi na twarz <span>50 podstron</span></h3><p>Oczyszczanie, złuszczanie, nawilżanie, odmładzanie, lifting, trądzik, naczynka, przebarwienia, okolice oka.</p></a>
-   <a class="kat" href="#zabiegi" data-k="ci"><figure><img src="img/k-cialo-420.webp" srcset="img/k-cialo-420.webp 420w, img/k-cialo-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="558" alt="Modelowanie sylwetki" loading="lazy"></figure><h3>Zabiegi na ciało <span>21 podstron</span></h3><p>Modelowanie sylwetki, cellulit, tkanka tłuszczowa, rozstępy, ujędrnianie, obrzęki, masaże, depilacja.</p></a>
-   <a class="kat" href="#zabiegi" data-k="la"><figure><img src="img/k-laser-420.webp" srcset="img/k-laser-420.webp 420w, img/k-laser-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg laserowy na twarz" loading="lazy"></figure><h3>Zabiegi laserowe <span>12 zabiegów</span></h3><p>Laser frakcyjny CO2, laser tulowy, laser pikosekundowy, usuwanie tatuażu, IPL / SSR, epilacja laserowa.</p></a>
-   <a class="kat" href="#zabiegi" data-k="me"><figure><img src="img/k-med-420.webp" srcset="img/k-med-420.webp 420w, img/k-med-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg medycyny estetycznej" loading="lazy"></figure><h3>Medycyna estetyczna <span>7 podstron</span></h3><p>Toksyna botulinowa, lifting wolumetryczny, modelowanie ust, osocze i fibryna, stymulatory, nadpotliwość.</p></a>
-   <a class="kat" href="#zabiegi" data-k="ko"><figure><img src="img/k-kosm-420.webp" srcset="img/k-kosm-420.webp 420w, img/k-kosm-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Henna brwi i rzęs" loading="lazy"></figure><h3>Kosmetyka dodatkowa <span>5 podstron</span></h3><p>Henna brwi i rzęs, henna pudrowa z geometrią, laminacja brwi, lifting rzęs, przebicie uszu.</p></a>
+   <a class="kat" href="#zabiegi" data-k="me"><figure><img src="img/k-med-420.webp" srcset="img/k-med-420.webp 420w, img/k-med-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg medycyny estetycznej" loading="lazy"></figure><h3>Medycyna estetyczna <span>8 zabiegów</span></h3><p>Toksyna botulinowa, kwas hialuronowy, modelowanie ust, osocze, stymulatory, nadpotliwość.</p></a>
+   <a class="kat" href="#zabiegi" data-k="la"><figure><img src="img/k-laser-420.webp" srcset="img/k-laser-420.webp 420w, img/k-laser-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg laserowy na twarz" loading="lazy"></figure><h3>Zabiegi laserowe <span>12 zabiegów</span></h3><p>Laser CO2, tulowy, pikosekundowy, usuwanie tatuażu, IPL / SSR, epilacja laserowa.</p></a>
+   <a class="kat" href="#zabiegi" data-k="ks"><figure><img src="img/k-twarz-420.webp" srcset="img/k-twarz-420.webp 420w, img/k-twarz-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg kosmetologiczny na twarz" loading="lazy"></figure><h3>Kosmetologia <span>38 zabiegów</span></h3><p>Oczyszczanie skóry, peelingi chemiczne, mezoterapia, Geneo, infuzja tlenowa, RF.</p></a>
+   <a class="kat" href="#zabiegi" data-k="ms"><figure><img src="img/k-cialo-420.webp" srcset="img/k-cialo-420.webp 420w, img/k-cialo-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="558" alt="Modelowanie sylwetki" loading="lazy"></figure><h3>Modelowanie sylwetki <span>9 zabiegów</span></h3><p>Magnetic Sculp, fala uderzeniowa, kriolipoliza, lipodermologia, maderoterapia.</p></a>
+   <a class="kat" href="#zabiegi" data-k="sp"><figure><img src="img/b-kobido-770.webp" width="770" height="434" alt="Masaż w Instytucie Image" loading="lazy"></figure><h3>Relaks i SPA <span>6 zabiegów</span></h3><p>Masaż relaksacyjny, Lomi Lomi, stemple winogronowe, masaż ajurwedyjski, Kobido UP.</p></a>
+   <a class="kat" href="#zabiegi" data-k="kd"><figure><img src="img/k-kosm-420.webp" srcset="img/k-kosm-420.webp 420w, img/k-kosm-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Henna brwi i rzęs" loading="lazy"></figure><h3>Kosmetyka dodatkowa <span>6 zabiegów</span></h3><p>Henna i laminacja brwi, lifting rzęs, depilacja woskiem, przebicie uszu.</p></a>
+   <a class="kat" href="#zabiegi" data-k="tp"><figure><img src="img/gabinet-600.webp" width="600" height="900" alt="Konsultacja w gabinecie Instytutu Image" loading="lazy"></figure><h3>Twój problem <span>16 programów</span></h3><p>Naczynka, trądzik, przebarwienia, blizny, zmarszczki, cellulit. Zaczynasz od problemu, my dobieramy zabiegi.</p></a>
   </div>
  </div>
 </section>
 
-<section id="voucher">
+<section id="cennik">
+ <div class="wrap">
+  <div class="glowa"><div><h2>Cennik</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><p>Ceny pojedynczego zabiegu. Pakiety i serie taniej, zapytaj w recepcji.</p></div>
+  <div class="cen-tabs" role="tablist" id="ctabs">
+   <button role="tab" aria-selected="true" aria-controls="c-me">Medycyna estetyczna i lasery</button>
+   <button role="tab" aria-selected="false" aria-controls="c-ks">Kosmetologia</button>
+   <button role="tab" aria-selected="false" aria-controls="c-ms">Modelowanie sylwetki i SPA</button>
+  </div>
+  <div class="cpanel" id="c-me"><div class="cpoz"><span>Toksyna botulinowa<small>1 okolica</small></span><b>500 zł</b></div><div class="cpoz"><span>Toksyna botulinowa<small>2 okolice</small></span><b>900 zł</b></div><div class="cpoz"><span>Toksyna botulinowa<small>3 okolice</small></span><b>1 200 zł</b></div><div class="cpoz"><span>Modelowanie ust kwasem hialuronowym<small>1 ml, zabieg wykonuje lekarz</small></span><b>1 000 zł</b></div><div class="cpoz"><span>Wolumetria i modelowanie konturów twarzy<small>1 ml kwasu hialuronowego</small></span><b>1 200 zł</b></div><div class="cpoz"><span>Leczenie nadpotliwości</span><b>1 800 zł</b></div><div class="cpoz"><span>Piling laserowy CO2<small>twarz</small></span><b>1 200 zł</b></div><div class="cpoz"><span>Epilacja laserowa<small>policzki</small></span><b>160 zł</b></div></div>
+  <div class="cpanel" id="c-ks" hidden><div class="cpoz"><span>Piling chemiczny IBCN<small>twarz</small></span><b>175 zł</b></div><div class="cpoz"><span>Oxybrazja<small>twarz</small></span><b>210 zł</b></div><div class="cpoz"><span>Infuzja tlenowa<small>twarz</small></span><b>275 zł</b></div><div class="cpoz"><span>Geneo / Geneo Premium<small>twarz</small></span><b>295 / 380 zł</b></div><div class="cpoz"><span>Oczyszczanie wodorowe anty-ageing</span><b>299 zł</b></div><div class="cpoz"><span>Oczyszczanie specjalistyczne<small>standard / premium</small></span><b>350 / 390 zł</b></div><div class="cpoz"><span>NeuroTouch Lift<small>twarz</small></span><b>385 zł</b></div><div class="cpoz"><span>EMR Young, lifting owalu twarzy<small>1 obszar</small></span><b>800 zł</b></div></div>
+  <div class="cpanel" id="c-ms" hidden><div class="cpoz"><span>Lipokawitacja Lipo X<small>1 partia ciała, 20 min</small></span><b>139 zł</b></div><div class="cpoz"><span>Lipodermologia<small>całe ciało, 50 min</small></span><b>199 zł</b></div><div class="cpoz"><span>Fala uderzeniowa DJ Medical<small>1 partia ciała</small></span><b>250 zł</b></div><div class="cpoz"><span>Thermalipoliza ciała RF<small>1 partia ciała, 30 min</small></span><b>250 zł</b></div><div class="cpoz"><span>Magnetic Sculp<small>1 partia ciała, 40 min</small></span><b>350 zł</b></div><div class="cpoz"><span>Kriolipoliza Lipo Freeze 4D</span><b>450 zł</b></div><div class="cpoz"><span>Masaż Lomi Lomi<small>całe ciało, 60 min</small></span><b>220 zł</b></div><div class="cpoz"><span>Masaż ciepłymi stemplami winogronowymi<small>ciało, twarz, szyja, dekolt, 90 min</small></span><b>280 zł</b></div></div>
+  <div class="cen-dol"><span>W podglądzie wybrane pozycje z Państwa cennika. Na stronie docelowej pełny cennik wszystkich zabiegów.</span><span class="pdf"><a href="https://instytutimage.pl/pobierz/Cennik%20Medi%20Estetica.pdf" target="_blank" rel="noopener">Cennik Medi Estetica (PDF)</a><a href="https://instytutimage.pl/pobierz/Cennik%20Medi%20Cosmetica.pdf" target="_blank" rel="noopener">Medi Cosmetica (PDF)</a><a href="https://instytutimage.pl/pobierz/Cennik%20Medi%20Spa.pdf" target="_blank" rel="noopener">Medi Spa (PDF)</a></span></div>
+ </div>
+</section>
+
+<section class="szary" id="voucher">
  <div class="wrap vou">
   <figure><img src="img/voucher-600.webp" srcset="img/voucher-600.webp 600w, img/voucher-1000.webp 1000w" sizes="(max-width:900px) 100vw, 45vw" width="600" height="800" alt="Voucher podarunkowy Instytutu Image" loading="lazy"><button type="button" data-lb="img/voucher-1000.webp" aria-label="Powiększ zdjęcie vouchera"></button></figure>
   <div>
    <h2>Voucher podarunkowy</h2>
    <svg class="linia" aria-hidden="true"><use href="#lin"/></svg>
    <p style="margin-top:22px;color:var(--mut);max-width:56ch">Są prezenty, które zostają w pamięci na długo. Podaruj bliskiej osobie chwilę tylko dla siebie: profesjonalną pielęgnację, relaks i dbałość o siebie.</p>
-   <div class="opcje">
-    <div class="opcja"><h3>Bon kwotowy</h3><p>Dowolna kwota do wykorzystania na zabiegi z całej oferty.</p><a class="btn" href="#voucher">Kup online</a></div>
-    <div class="opcja"><h3>Bon na zabieg</h3><p>Konkretny zabieg wybrany z menu zabiegowego.</p><a class="btn" href="#voucher">Kup online</a></div>
-   </div>
+   <form class="vform" id="vform">
+    <label>Rodzaj vouchera<select id="vtyp"><option value="k">Bon kwotowy</option><option value="z">Bon na zabieg</option></select></label>
+    <label id="vkw">Kwota<select><option>200 zł</option><option>300 zł</option><option selected>500 zł</option><option>1 000 zł</option></select></label>
+    <label id="vzab" hidden>Zabieg<select><option>Geneo, twarz</option><option>Infuzja tlenowa, twarz</option><option>Masaż Lomi Lomi, 60 min</option><option>Oczyszczanie wodorowe anty-ageing</option></select></label>
+    <label class="cala">Imię i nazwisko osoby obdarowanej <span class="gw">*</span><input type="text" required placeholder="np. Anna Kowalska" autocomplete="off"></label>
+    <label>Telefon osoby obdarowanej <span class="gw">*</span><input type="tel" required placeholder="np. 600 000 000" autocomplete="off"></label>
+    <label>Twój e-mail (tu wyślemy voucher) <span class="gw">*</span><input type="email" required placeholder="np. jan@poczta.pl" autocomplete="off"></label>
+    <p class="info">Pola z gwiazdką są wymagane. Każdy voucher ma unikalny numer, a recepcja dostaje go razem z danymi osoby obdarowanej.</p>
+    <button class="btn" type="submit">Przejdź do płatności</button>
+   </form>
+   <p class="vmsg" id="vmsg" aria-live="polite"></p>
    <ol class="kroki">
-    <li><b>Wybierasz</b> kwotę albo zabieg</li>
+    <li><b>Wybierasz</b> kwotę albo zabieg i wpisujesz dane osoby obdarowanej</li>
     <li><b>Płacisz online</b> przelewem lub BLIK</li>
-    <li><b>Voucher PDF</b> przychodzi na e-mail od razu</li>
+    <li><b>Voucher PDF z numerem</b> przychodzi na e-mail od razu</li>
    </ol>
   </div>
  </div>
@@ -402,7 +476,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
  </div>
 </section>
 
-<section id="zespol">
+<section id="zespol" style="padding-top:clamp(40px,4vw,70px)">
  <div class="wrap">
   <div class="glowa"><div><h2>Nasz zespół</h2><svg class="linia" aria-hidden="true"><use href="#lin"/></svg></div><div class="nav-tor" data-nav="torZ"><button type="button" data-k="-1" aria-label="Poprzednie"><svg viewBox="0 0 22 12" style="transform:scaleX(-1)"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button><button type="button" data-k="1" aria-label="Następne"><svg viewBox="0 0 22 12"><path d="M1 6h19M15 1l5 5-5 5"/></svg></button></div></div>
   <div class="tor zesp" id="torZ" data-tor>
@@ -436,7 +510,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
    <div class="w"><small>Adres</small>Aleje 1 Maja 5, 62-510 Konin</div>
    <div class="w"><small>Telefon i e-mail</small><a href="tel:+48662497510">+48 662 497 510</a><br><a href="mailto:konin@instytutimage.pl">konin@instytutimage.pl</a></div>
    <div class="w"><small>Godziny otwarcia</small><div class="godz"><span>Poniedziałek - piątek</span><span>9:00 - 20:00</span><span>Sobota</span><span>8:00 - 14:00</span><span>Niedziela</span><span>zamknięte</span></div></div>
-   <a class="btn" href="tel:+48662497510">Zadzwoń i umów wizytę</a>
+   <div class="przyc"><a class="btn" href="https://booksy.com/pl-pl/100915_image-instytut-kosmetologii-i-medycyny-estetycznej_inni_17089_konin" target="_blank" rel="noopener">Rezerwacja online</a><a class="btn ciem" href="tel:+48662497510">Zadzwoń i umów wizytę</a></div>
   </div>
   <div class="mapa" id="mapa" data-src="https://www.google.com/maps?q=Aleje+1+Maja+5,+62-510+Konin&amp;output=embed" data-t="Mapa dojazdu do Instytutu Image"></div>
  </div>
@@ -447,15 +521,15 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
  <div class="wrap">
   <div class="st">
    <div><img src="img/logo-320.webp" width="320" height="138" alt="Image medycyna & kosmetologia" loading="lazy"><p style="margin:0">Instytut Image - medycyna &amp; kosmetologia<br>Aleje 1 Maja 5, 62-510 Konin</p></div>
-   <div><b>Zabiegi</b><a href="#zabiegi" data-k="tw">Na twarz</a><a href="#zabiegi" data-k="ci">Na ciało</a><a href="#zabiegi" data-k="la">Laserowe</a><a href="#zabiegi" data-k="me">Medycyna estetyczna</a><a href="#zabiegi" data-k="ko">Kosmetyka</a></div>
-   <div><b>Instytut</b><a href="#o-nas">O nas</a><a href="#zespol">Zespół</a><a href="#blog">Blog</a><a href="#voucher">Vouchery</a></div>
+   <div><b>Zabiegi</b><a href="#zabiegi" data-k="me">Medycyna estetyczna</a><a href="#zabiegi" data-k="la">Zabiegi laserowe</a><a href="#zabiegi" data-k="ks">Kosmetologia</a><a href="#zabiegi" data-k="ms">Modelowanie sylwetki</a><a href="#zabiegi" data-k="sp">Relaks i SPA</a><a href="#zabiegi" data-k="tp">Twój problem</a></div>
+   <div><b>Instytut</b><a href="#o-nas">O nas i zespół</a><a href="#cennik">Cennik</a><a href="#voucher">Vouchery</a><a href="#blog">Blog</a></div>
    <div><b>Kontakt</b><a href="tel:+48662497510">+48 662 497 510</a><a href="mailto:konin@instytutimage.pl">konin@instytutimage.pl</a><a href="#kontakt">Regulamin</a><a href="#kontakt">Polityka prywatności</a></div>
   </div>
   <div class="dol"><span>© <span id="rok">2026</span> Instytut Image. Wszelkie prawa zastrzeżone.</span><a class="wylinka-badge" href="https://wylinka.pl/?utm_source=instytutimage.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a></div>
  </div>
 </footer>
 
-<div class="mob" id="mob"><a href="tel:+48662497510">Zadzwoń</a><a class="z" href="#zabiegi">Zabiegi</a><a href="#voucher">Voucher</a></div>
+<div class="mob" id="mob"><a href="tel:+48662497510">Zadzwoń</a><a class="z" href="https://booksy.com/pl-pl/100915_image-instytut-kosmetologii-i-medycyny-estetycznej_inni_17089_konin" target="_blank" rel="noopener">Rezerwacja</a><a href="#voucher">Voucher</a></div>
 <div class="lb" id="lb" role="dialog" aria-label="Powiększone zdjęcie"><img alt="" id="lbi"><button type="button" aria-label="Zamknij">×</button></div>
 
 <script src="app.js" defer></script>
