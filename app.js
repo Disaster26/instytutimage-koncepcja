@@ -14,7 +14,6 @@
   var tk=false;function sc(){if(tk)return;tk=true;requestAnimationFrame(function(){top.classList.toggle('sc',window.pageYOffset>10);tk=false})}
   addEventListener('scroll',sc,{passive:true});sc();
   var rok=document.getElementById('rok');if(rok)rok.textContent=new Date().getFullYear();
-
   /* zabiegi: [nazwa, kategorie, grupa, problemy, sciezka] */
   var O='https://instytutimage.pl/oferta/',T=O+'zabiegi/zabiegi-na-twarz/',C=O+'zabiegi/zabiegi-na-cialo/',L=O+'zabiegi/zabiegi-laserowe/',M=O+'medycyna-estetyczna/',K=O+'kosmetyka-dodatkowa/';
   var Z=[
@@ -68,16 +67,16 @@
   ['Masaż Kobido UP','sp','Masaż twarzy','z m',T+'masaz-kobido-up/'],
   ['Terapia enzymatyczna','ks','Pielęgnacja','q w',T+'terapia-enzymatyczna/'],
   ['EMR Young','ks','Odmładzanie','z',T+'emr-young/'],
-  ['Modelowanie sylwetki - program','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
-  ['Rzeźbienie mięśni Magnetic Sculp','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/rzezbienie-miesni-magnetic-sculp/'],
-  ['Fala uderzeniowa DJ Medical','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/fala-uderzeniowa-dj-medical/'],
-  ['Lipodermologia Elite Shape','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/lipodermologia-elite-shape/'],
-  ['Kriolipoliza Lipo Freeze 4D','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/kriolipoliza-lipo-freeze-4-d/'],
-  ['Thermalipoliza ciała RF','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/thermalipoliza-ciala-rf/'],
-  ['Lipokawitacja Lipo X','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/lipokawitacja-lipo-x/'],
-  ['Maderoterapia','ms','Modelowanie sylwetki','c m',C+'modelowanie-sylwetki/maderoterapia/'],
+  ['Zimne mikrofale 2,45 GHz','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['SlimOr Body','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Lipodermologia (endermologia)','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Rzeźbiarz mięśni Magnetic Sculp','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Fala uderzeniowa','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Termolipoliza ciała RF','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Lipokawitacja ultradźwiękowa','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Kriolipoliza Lipo Freeze 4D','ms','Modelowanie sylwetki','c',C+'modelowanie-sylwetki/'],
+  ['Maderoterapia','ms','Modelowanie sylwetki','c m',C+'modelowanie-sylwetki/'],
   ['Redukcja cellulitu','tp','Programy','c',C+'redukcja-cellulitu/'],
-  ['Winne drenowanie','ms','Cellulit','c m',C+'redukcja-cellulitu/winne-drenowanie/'],
   ['Redukcja tkanki tłuszczowej','tp','Programy','c',C+'redukcja-tkanki-tluszczowej/'],
   ['Redukcja rozstępów i blizn','tp','Programy','b',C+'redukcja-rozstepow-blizn/'],
   ['Ujędrnianie ciała','tp','Programy','z c',C+'ujedrnianie-ciala/'],
@@ -106,7 +105,7 @@
   ['Lifting, botox i laminacja rzęs','kd','Brwi i rzęsy','r',K+'lifting-botox-laminacja-rzes/'],
   ['Przebicie uszu','kd','Kosmetyka','',K+'przebicie-uszu/']
   ];
-  var PG={'Zmarszczki mimiczne - toksyna botulinowa':'toksyna-botulinowa.html','Laser frakcyjny CO2':'laser-frakcyjny-co2.html','Oczyszczanie wodorowe':'oczyszczanie-wodorowe.html','Rzeźbienie mięśni Magnetic Sculp':'magnetic-sculp.html','Kriolipoliza Lipo Freeze 4D':'kriolipoliza.html','Masaż Lomi Lomi z aromatyczną świecą':'masaz-lomi-lomi.html','Henna pudrowa z geometrią brwi':'henna-pudrowa.html','Popękane naczynia krwionośne':'problem-naczynka.html','Niwelowanie przebarwień':'problem-przebarwienia.html','Redukcja cellulitu':'problem-cellulit.html','Zabiegi na blizny potrądzikowe':'problem-blizny.html','Pielęgnacja okolic oka':'problem-okolice-oczu.html'};
+  var PG={'Zmarszczki mimiczne - toksyna botulinowa':'toksyna-botulinowa.html','Laser frakcyjny CO2':'laser-frakcyjny-co2.html','Oczyszczanie wodorowe':'oczyszczanie-wodorowe.html','Zimne mikrofale 2,45 GHz':'zimne-mikrofale.html','SlimOr Body':'slimor-body.html','Lipodermologia (endermologia)':'lipodermologia.html','Rzeźbiarz mięśni Magnetic Sculp':'magnetic-sculp.html','Fala uderzeniowa':'fala-uderzeniowa.html','Termolipoliza ciała RF':'termolipoliza-rf.html','Lipokawitacja ultradźwiękowa':'lipokawitacja.html','Maderoterapia':'maderoterapia.html','Kriolipoliza Lipo Freeze 4D':'kriolipoliza.html','Masaż Lomi Lomi z aromatyczną świecą':'masaz-lomi-lomi.html','Henna pudrowa z geometrią brwi':'henna-pudrowa.html','Popękane naczynia krwionośne':'problem-naczynka.html','Niwelowanie przebarwień':'problem-przebarwienia.html','Redukcja cellulitu':'problem-cellulit.html','Zabiegi na blizny potrądzikowe':'problem-blizny.html','Pielęgnacja okolic oka':'problem-okolice-oczu.html'};
   var CP={me:'medycyna-estetyczna.html',la:'zabiegi-laserowe.html',ks:'kosmetologia.html',ms:'modelowanie-sylwetki.html',sp:'relaks-spa.html',kd:'kosmetyka-dodatkowa.html',tp:'twoj-problem.html'};
   var NK={me:'Medycyna estetyczna',la:'Zabiegi laserowe',ks:'Kosmetologia',ms:'Modelowanie sylwetki',sp:'Relaks i SPA',kd:'Kosmetyka dodatkowa',tp:'Twój problem'};
   if(document.getElementById('lista')){
@@ -132,7 +131,6 @@
   document.querySelectorAll('a[data-k]').forEach(function(a){a.addEventListener('click',function(){ustawK(a.dataset.k)})});
   rysuj();
   }
-
   if('IntersectionObserver' in window){
     var links=[].slice.call(document.querySelectorAll('.menu>a[href^="#"]:not(.btn),.menu>.mm>a'));
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
@@ -142,7 +140,6 @@
     var m=document.getElementById('mapa');
     if(m){var mo=new IntersectionObserver(function(es){if(es[0].isIntersecting){var f=document.createElement('iframe');f.src=m.dataset.src;f.title=m.dataset.t;f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';m.appendChild(f);mo.disconnect()}},{rootMargin:'300px'});mo.observe(m)}
   }
-
   document.querySelectorAll('[data-tor]').forEach(function(tor){
     var down=false,sx=0,sl=0,moved=false;
     function step(){var k=tor.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(tor).columnGap||0):300}
@@ -156,8 +153,6 @@
       bs.forEach(function(b){b.addEventListener('click',function(){tor.scrollBy({left:step()*(+b.dataset.k),behavior:'smooth'})})});
       function vis(){nav.style.visibility=tor.scrollWidth>tor.clientWidth+4?'visible':'hidden'}vis();addEventListener('resize',vis)}
   });
-
-
   var ct=[].slice.call(document.querySelectorAll('#ctabs button')),cp=[].slice.call(document.querySelectorAll('.cpanel'));
   ct.forEach(function(b){b.addEventListener('click',function(){ct.forEach(function(x){x.setAttribute('aria-selected',x===b)});cp.forEach(function(p){p.hidden=p.id!==b.getAttribute('aria-controls')})})});
   var vf=document.getElementById('vform');
