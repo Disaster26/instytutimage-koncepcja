@@ -142,7 +142,8 @@ section{padding:clamp(64px,6vw,128px) 0}
 .kat-tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--zl)}
 .kat-tabs i{font-style:normal;color:var(--zl2);font-size:.85em;margin-left:5px}
 .wynik{font-size:15px;color:var(--mut);margin-bottom:14px}
-.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;padding:1px 0 0 1px}
+.lista>*{border:1px solid var(--line);margin:-1px 0 0 -1px}
 .lista a{display:flex;flex-direction:column;gap:6px;background:#fff;padding:18px 20px 20px;text-decoration:none;min-height:104px;transition:background .15s}
 .lista a:hover{background:#fbf8f2}
 .lista a b{font-weight:700;font-size:16.5px;line-height:1.35}
@@ -392,9 +393,9 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
      <div><b><a href="medycyna-estetyczna.html">Medycyna estetyczna</a></b><a href="toksyna-botulinowa.html">Toksyna botulinowa</a><a href="medycyna-estetyczna.html">Lifting wolumetryczny</a><a href="medycyna-estetyczna.html">Modelowanie ust</a><a href="medycyna-estetyczna.html">Osocze i fibryna</a><a href="medycyna-estetyczna.html">Stymulatory tkankowe</a><small>8 zabiegów</small></div>
      <div><b><a href="zabiegi-laserowe.html">Zabiegi laserowe</a></b><a href="zabiegi-laserowe.html">Światło szerokopasmowe</a><a href="laser-frakcyjny-co2.html">Laser frakcyjny CO2</a><a href="laser-tulowy.html">Laser tulowy</a><a href="laser-pikosekundowy.html">Laser pikosekundowy</a><a href="usuwanie-tatuazu.html">Usuwanie tatuażu</a><a href="depilacja-laserowa.html">Depilacja laserowa</a><small>9 zabiegów</small></div>
      <div><b><a href="kosmetologia.html">Kosmetologia</a></b><a href="oczyszczanie-wodorowe.html">Oczyszczanie skóry</a><a href="kosmetologia.html">Peelingi chemiczne</a><a href="kosmetologia.html">Mezoterapia</a><a href="kosmetologia.html">Geneo, infuzja tlenowa</a><a href="kosmetologia.html">RF i lifting bez igieł</a><small>38 zabiegów</small></div>
-     <div><b><a href="modelowanie-sylwetki.html">Modelowanie sylwetki</a></b><a href="magnetic-sculp.html">Magnetic Sculp</a><a href="modelowanie-sylwetki.html">Fala uderzeniowa</a><a href="kriolipoliza.html">Kriolipoliza</a><a href="modelowanie-sylwetki.html">Lipodermologia</a><a href="modelowanie-sylwetki.html">Maderoterapia</a><small>9 zabiegów</small></div>
-     <div><b><a href="relaks-spa.html">Relaks i SPA</a></b><a href="relaks-spa.html">Masaż relaksacyjny</a><a href="masaz-lomi-lomi.html">Lomi Lomi</a><a href="relaks-spa.html">Stemple winogronowe</a><a href="relaks-spa.html">Masaż ajurwedyjski</a><a href="relaks-spa.html">Kobido UP</a><small>6 zabiegów</small></div>
-     <div><b><a href="kosmetyka-dodatkowa.html">Kosmetyka dodatkowa</a></b><a href="kosmetyka-dodatkowa.html">Henna brwi i rzęs</a><a href="kosmetyka-dodatkowa.html">Laminacja brwi</a><a href="kosmetyka-dodatkowa.html">Lifting rzęs</a><a href="kosmetyka-dodatkowa.html">Depilacja woskiem</a><a href="kosmetyka-dodatkowa.html">Przebicie uszu</a><small>6 zabiegów</small></div>
+     <div><b><a href="modelowanie-sylwetki.html">Modelowanie sylwetki</a></b><a href="magnetic-sculp.html">Magnetic Sculp</a><a href="modelowanie-sylwetki.html">Fala uderzeniowa</a><a href="kriolipoliza.html">Kriolipoliza</a><a href="modelowanie-sylwetki.html">Lipodermologia</a><a href="maderoterapia.html">Maderoterapia</a><small>9 zabiegów</small></div>
+     <div><b><a href="relaks-spa.html">Relaks i SPA</a></b><a href="masaz-relaksacyjny.html">Masaż relaksacyjny</a><a href="masaz-lomi-lomi.html">Lomi Lomi</a><a href="masaz-stemplami-winogronowymi.html">Stemple winogronowe</a><a href="masaz-ajurwedyjski.html">Masaż ajurwedyjski</a><a href="masaz-kobido-up.html">Kobido UP</a><small>5 zabiegów</small></div>
+     <div><b><a href="kosmetyka-dodatkowa.html">Kosmetyka dodatkowa</a></b><a href="henna-brwi-i-rzes.html">Henna brwi i rzęs</a><a href="laminacja-brwi.html">Laminacja brwi</a><a href="lifting-rzes.html">Lifting rzęs</a><a href="depilacja-woskiem.html">Depilacja woskiem</a><a href="przebicie-uszu.html">Przebicie uszu</a><small>6 zabiegów</small></div>
      <div><b><a href="twoj-problem.html">Twój problem</a></b><a href="problem-naczynka.html">Naczynka i trądzik różowaty</a><a href="problem-przebarwienia.html">Przebarwienia</a><a href="problem-blizny.html">Blizny potrądzikowe</a><a href="problem-cellulit.html">Cellulit i tkanka tłuszczowa</a><a href="problem-okolice-oczu.html">Okolice oczu</a><small>16 programów</small></div>
     </div></div>
    </div>
@@ -428,10 +429,10 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
  </div>
  <nav class="rail" aria-label="Kategorie zabiegów"><div class="wrap">
   <a href="medycyna-estetyczna.html">Medycyna estetyczna <span>8</span></a>
-  <a href="zabiegi-laserowe.html">Laserowe <span>12</span></a>
+  <a href="zabiegi-laserowe.html">Laserowe <span>9</span></a>
   <a href="kosmetologia.html">Kosmetologia <span>38</span></a>
   <a href="modelowanie-sylwetki.html">Modelowanie sylwetki <span>9</span></a>
-  <a href="relaks-spa.html">Relaks i SPA <span>6</span></a>
+  <a href="relaks-spa.html">Relaks i SPA <span>5</span></a>
   <a href="kosmetyka-dodatkowa.html">Kosmetyka dodatkowa <span>6</span></a>
   <a href="twoj-problem.html">Twój problem <span>16</span></a>
  </div></nav>
@@ -492,7 +493,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
    <a class="kat" href="zabiegi-laserowe.html"><figure><img src="img/k-laser-420.webp" srcset="img/k-laser-420.webp 420w, img/k-laser-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg laserowy na twarz" loading="lazy"></figure><h3>Zabiegi laserowe <span>9 zabiegów</span></h3><p>Światło szerokopasmowe, laser CO2, tulowy, pikosekundowy, usuwanie tatuażu, depilacja laserowa.</p></a>
    <a class="kat" href="kosmetologia.html"><figure><img src="img/k-twarz-420.webp" srcset="img/k-twarz-420.webp 420w, img/k-twarz-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Zabieg kosmetologiczny na twarz" loading="lazy"></figure><h3>Kosmetologia <span>38 zabiegów</span></h3><p>Oczyszczanie skóry, peelingi chemiczne, mezoterapia, Geneo, infuzja tlenowa, RF.</p></a>
    <a class="kat" href="modelowanie-sylwetki.html"><figure><img src="img/k-cialo-420.webp" srcset="img/k-cialo-420.webp 420w, img/k-cialo-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="558" alt="Modelowanie sylwetki" loading="lazy"></figure><h3>Modelowanie sylwetki <span>9 zabiegów</span></h3><p>Magnetic Sculp, fala uderzeniowa, kriolipoliza, lipodermologia, maderoterapia.</p></a>
-   <a class="kat" href="relaks-spa.html"><figure><img src="img/b-kobido-770.webp" width="770" height="434" alt="Masaż w Instytucie Image" loading="lazy"></figure><h3>Relaks i SPA <span>6 zabiegów</span></h3><p>Masaż relaksacyjny, Lomi Lomi, stemple winogronowe, masaż ajurwedyjski, Kobido UP.</p></a>
+   <a class="kat" href="relaks-spa.html"><figure><img src="img/b-kobido-770.webp" width="770" height="434" alt="Masaż w Instytucie Image" loading="lazy"></figure><h3>Relaks i SPA <span>5 zabiegów</span></h3><p>Masaż relaksacyjny, Lomi Lomi, stemple winogronowe, masaż ajurwedyjski, Kobido UP.</p></a>
    <a class="kat" href="kosmetyka-dodatkowa.html"><figure><img src="img/k-kosm-420.webp" srcset="img/k-kosm-420.webp 420w, img/k-kosm-720.webp 720w" sizes="(max-width:620px) 76vw, (max-width:1100px) 36vw, 19vw" width="420" height="560" alt="Henna brwi i rzęs" loading="lazy"></figure><h3>Kosmetyka dodatkowa <span>6 zabiegów</span></h3><p>Henna i laminacja brwi, lifting rzęs, depilacja woskiem, przebicie uszu.</p></a>
    <a class="kat" href="twoj-problem.html"><figure><img src="img/gabinet-600.webp" width="600" height="900" alt="Konsultacja w gabinecie Instytutu Image" loading="lazy"></figure><h3>Twój problem <span>16 programów</span></h3><p>Naczynka, trądzik, przebarwienia, blizny, zmarszczki, cellulit. Zaczynasz od problemu, my dobieramy zabiegi.</p></a>
   </div>
