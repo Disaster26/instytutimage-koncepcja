@@ -209,6 +209,26 @@ section{padding:clamp(64px,6vw,128px) 0}
 .osoba span{font-size:14.5px;color:var(--mut)}
 @media (max-width:1300px){.tor.zesp{grid-auto-columns:calc((100% - 3*20px)/4)}}
 @media (max-width:700px){.tor.zesp{grid-auto-columns:46%;column-gap:14px}}
+/* social */
+.soc{display:flex;flex-wrap:wrap;gap:10px}
+.soc a{display:inline-flex!important;align-items:center;gap:8px;min-height:44px;padding:0 14px 0 10px!important;border:1px solid var(--line);border-radius:22px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;background:#fff;transition:border-color .2s,color .2s}
+.soc a:hover{border-color:var(--zl);color:var(--zl2)}
+.soc svg{width:22px;height:22px;color:var(--zl2);flex:none}
+footer .soc{margin-top:18px}
+.menu .soc-m{display:none}
+@media (max-width:1180px){.menu .soc-m{display:flex;margin-top:22px}}
+/* aktualnosci */
+.post .typ{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--zl);padding:4px 9px;margin-right:8px}
+.post figure.plak{background:var(--g);display:flex;align-items:center;justify-content:center}
+.post figure.plak img{width:auto;max-width:100%;height:100%;object-fit:contain}
+.post-art figure.plakat{text-align:center;background:var(--g);padding:clamp(12px,2vw,28px)}
+.post-art figure.plakat img{width:auto;max-width:min(100%,620px);height:auto;max-height:none;object-fit:contain;margin:0 auto;display:block}
+.post-art figure.plakat figcaption{font-size:14px;color:var(--mut);margin-top:10px}
+.oferta{border-left:3px solid var(--zl);background:var(--g);padding:18px 22px;margin:26px 0}
+.oferta p{margin:0 0 6px}
+.akt-f{margin-bottom:30px}
+.post[hidden]{display:none}
+.post .typ.art{background:var(--ink)}
 /* blog */
 .blog{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,36px)}
 .post{text-decoration:none;display:block}
@@ -381,7 +401,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="lin" viewBox="0 0 200 30"><path d="M3 24C36 30 58 4 92 7c26 2 30 18 54 17 22-1 34-14 51-20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol><symbol id="str" viewBox="0 0 22 10"><path d="M1 5h19M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z" fill="currentColor"/></symbol><symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol><symbol id="lin" viewBox="0 0 200 30"><path d="M3 24C36 30 58 4 92 7c26 2 30 18 54 17 22-1 34-14 51-20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol><symbol id="str" viewBox="0 0 22 10"><path d="M1 5h19M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
 <header class="top" id="top">
  <div class="wrap">
   <a class="logo" href="index.html" aria-label="Instytut Image - strona główna"><img src="img/logo-320.webp" srcset="img/logo-320.webp 320w, img/logo-640.webp 640w" sizes="130px" width="320" height="138" alt="Image medycyna & kosmetologia"></a>
@@ -400,7 +420,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
    <a href="cennik.html">Cennik</a>
    <a href="vouchery.html">Vouchery</a>
    <a href="o-nas.html">O nas i zespół</a>
-   <a href="blog.html">Blog</a>
+   <a href="aktualnosci.html">Aktualności</a>
    <a href="kontakt.html">Kontakt</a>
    <div class="um"><a class="btn" href="kontakt.html">Umów wizytę</a>
     <div class="pop"><div>
@@ -408,6 +428,7 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
      <a href="tel:+48662497510"><b>Zadzwoń: 662 497 510</b><small>pn-pt 9-20, sobota 8-14</small></a>
     </div></div>
    </div>
+   <div class="soc soc-m"><a href="https://www.facebook.com/ImageInstytutKosmetologii" target="_blank" rel="noopener" aria-label="Instytut Image na Facebooku"><svg aria-hidden="true"><use href="#i-fb"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/image.konin" target="_blank" rel="noopener" aria-label="Instytut Image na Instagramie"><svg aria-hidden="true"><use href="#i-ig"/></svg><span>Instagram</span></a></div>
   </nav>
   <button class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
@@ -453,9 +474,9 @@ footer{background:var(--g);color:var(--mut);font-size:15px;padding:44px 0 28px}
 <footer>
  <div class="wrap">
   <div class="st">
-   <div><img src="img/logo-320.webp" width="320" height="138" alt="Image medycyna & kosmetologia" loading="lazy"><p style="margin:0">Instytut Image - medycyna &amp; kosmetologia<br>Aleje 1 Maja 5, 62-510 Konin</p></div>
+   <div><img src="img/logo-320.webp" width="320" height="138" alt="Image medycyna & kosmetologia" loading="lazy"><p style="margin:0">Instytut Image - medycyna &amp; kosmetologia<br>Aleje 1 Maja 5, 62-510 Konin</p><div class="soc"><a href="https://www.facebook.com/ImageInstytutKosmetologii" target="_blank" rel="noopener" aria-label="Instytut Image na Facebooku"><svg aria-hidden="true"><use href="#i-fb"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/image.konin" target="_blank" rel="noopener" aria-label="Instytut Image na Instagramie"><svg aria-hidden="true"><use href="#i-ig"/></svg><span>Instagram</span></a></div></div>
    <div><b>Zabiegi</b><a href="medycyna-estetyczna.html">Medycyna estetyczna</a><a href="zabiegi-laserowe.html">Zabiegi laserowe</a><a href="kosmetologia.html">Kosmetologia</a><a href="modelowanie-sylwetki.html">Modelowanie sylwetki</a><a href="relaks-spa.html">Relaks i SPA</a><a href="twoj-problem.html">Twój problem</a></div>
-   <div><b>Instytut</b><a href="o-nas.html">O nas i zespół</a><a href="cennik.html">Cennik</a><a href="vouchery.html">Vouchery</a><a href="blog.html">Blog</a></div>
+   <div><b>Instytut</b><a href="o-nas.html">O nas i zespół</a><a href="cennik.html">Cennik</a><a href="vouchery.html">Vouchery</a><a href="aktualnosci.html">Aktualności</a></div>
    <div><b>Kontakt</b><a href="tel:+48662497510">+48 662 497 510</a><a href="mailto:konin@instytutimage.pl">konin@instytutimage.pl</a><a href="https://instytutimage.pl/pobierz/doc/regulamin_bon.pdf" target="_blank" rel="noopener">Regulamin voucherów</a><a href="polityka-prywatnosci.html">Polityka prywatności</a></div>
   </div>
   <div class="dol"><span>© <span id="rok">2026</span> Instytut Image. Wszelkie prawa zastrzeżone.</span><a class="wylinka-badge" href="https://wylinka.pl/?utm_source=instytutimage.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a></div>
