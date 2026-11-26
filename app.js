@@ -166,11 +166,18 @@
   var cq=document.getElementById('cq');
   if(cq){var cc=[].slice.call(document.querySelectorAll('#cchips button')),rows=[].slice.call(document.querySelectorAll('.cfull .cpoz')),grs=[].slice.call(document.querySelectorAll('.cfull .cgr')),cbr=document.getElementById('cbrak'),ck='';
     function cnorm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l')}
-    function cf(){var q=cnorm(cq.value.trim()),n=0;rows.forEach(function(r){var ok=(!ck||r.dataset.c===ck)&&(!q||cnorm(r.textContent).indexOf(q)>-1);r.hidden=!ok;if(ok)n++});grs.forEach(function(g){g.hidden=!g.querySelector('.cpoz:not([hidden])')});cbr.hidden=n>0}
+    function cf(){var q=cnorm(cq.value.trim()),n=0;rows.forEach(function(r){var ok=(!ck||r.dataset.c===ck)&&(!q||cnorm(r.textContent).indexOf(q)>-1);r.hidden=!ok;if(ok)n++});[].forEach.call(document.querySelectorAll('.cfull .cblk'),function(b){b.hidden=!b.querySelector('.cpoz:not([hidden])')});[].forEach.call(document.querySelectorAll('.cfull .csub'),function(x){x.hidden=!!q});grs.forEach(function(g){g.hidden=!g.querySelector('.cpoz:not([hidden])')});cbr.hidden=n>0}
     cq.addEventListener('input',cf);
     cc.forEach(function(b){b.addEventListener('click',function(){ck=b.dataset.c;cc.forEach(function(x){x.setAttribute('aria-pressed',x===b)});cf()})});}
   var vp=document.getElementById('vprev');
-  if(vp){var vf2=document.getElementById('vform'),vnr=document.getElementById('vnr'),nr='IMG-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*90000)+10000);vnr.textContent=nr;
-    function vupd(){var t=document.getElementById('vtyp').value==='z';document.getElementById('vpw').textContent=t?document.querySelector('#vzab select').value:document.querySelector('#vkw select').value;var im=document.getElementById('vimie').value.trim();document.getElementById('vpo').textContent=im||'Imię i nazwisko osoby obdarowanej'}
+  if(vp){var vf2=document.getElementById('vform'),vnr=document.getElementById('vnr'),nr='IMG-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*90000)+10000),dt=new Date();vnr.textContent='nr '+nr;
+    document.getElementById('vdt').textContent=('0'+dt.getDate()).slice(-2)+'.'+('0'+(dt.getMonth()+1)).slice(-2)+'.'+dt.getFullYear();
+    var vty=document.getElementById('vtyp'),vkw=document.getElementById('vkw'),vzab=document.getElementById('vzab'),vzk=document.getElementById('vzk'),vbtn=document.getElementById('vbtn');
+    function vupd(){var t=vty.value==='z';vkw.hidden=t;vzab.hidden=!t;vzk.hidden=!t;var w1,w2='',cena;
+      if(t){var o=vzab.querySelector('select').selectedOptions[0];cena=o.dataset.cena+' zł';var n=o.textContent.replace(/ - \d+ zł$/,'');
+        document.getElementById('vzn').textContent=n;document.getElementById('vzc').textContent=cena;document.getElementById('vzo').textContent=o.dataset.opis;var l=document.getElementById('vzl');if(o.dataset.link){l.href=o.dataset.link;l.hidden=false}else l.hidden=true;
+        w1=n;w2='wartość '+cena}else{cena=vkw.querySelector('select').value;w1='Bon kwotowy '+cena}
+      document.getElementById('vpw').textContent=w1;document.getElementById('vpw2').textContent=w2;vbtn.textContent='Przejdź do płatności - '+cena;
+      var im=document.getElementById('vimie').value.trim();document.getElementById('vpo').textContent=im||'Imię i nazwisko osoby obdarowanej'}
     vf2.addEventListener('input',vupd);vf2.addEventListener('change',vupd);vupd();}
 })();
