@@ -29,7 +29,7 @@
   ['Piling chemiczny anty-ageing IBCN','ks','Złuszczanie','z',T+'zluszczanie/piling-chemiczny-anty-ageing-ibcn/'],
   ['Piling chemiczny depigmentant IBCN','ks','Złuszczanie','p',T+'zluszczanie/piling-chemiczny-depigmentant-ibcn/'],
   ['Laserowy piling węglowy Black Doll','ks la','Złuszczanie','q t w',T+'zluszczanie/laserowy-piling-weglowy-black-doll/'],
-  ['Oxybrazja','ks','Złuszczanie','q w',T+'zluszczanie/oxybrazja/'],
+  ['Oksybrazja','ks','Złuszczanie','q w',T+'zluszczanie/oxybrazja/'],
   ['Wiosenne przebudzenie','ks','Złuszczanie','w',T+'zluszczanie/wiosenne-przebudzenie/'],
   ['Nawilżanie - program zabiegów','ks','Nawilżanie','w',T+'nawilzanie/'],
   ['Mezoterapia igłowa','ks me','Nawilżanie','w z',T+'nawilzanie/mezoterapia-iglowa/'],
@@ -45,8 +45,8 @@
   ['Odmładzanie - program zabiegów','ks','Odmładzanie','z',T+'odmladzanie/'],
   ['Fotoodmładzanie SSR / IPL','ks la','Odmładzanie','z p n',T+'odmladzanie/fotoodmladzanie-ipl-e-light/'],
   ['Laserowe odmładzanie i ujędrnianie skóry','ks la','Odmładzanie','z',T+'odmladzanie/laserowe-odmladzanie-i-ujedrnianie-skory/'],
-  ['Frakcjonowanie mikroigłowe RF','ks','Odmładzanie','z b',T+'odmladzanie/frakcjonowanie-mikroiglowe-rf/'],
-  ['Thermalifting skóry RF','ks','Odmładzanie','z',T+'odmladzanie/thermalifting-skory-rf/'],
+  ['Radiofrekwencja mikroigłowa RF','ks','Odmładzanie','z b',T+'odmladzanie/frakcjonowanie-mikroiglowe-rf/'],
+  ['Termolifting RF','ks','Odmładzanie','z',T+'odmladzanie/thermalifting-skory-rf/'],
   ['Termolifting NIR','ks','Odmładzanie','z',T+'odmladzanie/termolifting-nir/'],
   ['Lifting skóry','tp','Programy','z',T+'lifting-skory/'],
   ['SOS dla skóry wrażliwej','tp','Programy','n w',T+'sos-dla-skory-wrazliwej/'],
@@ -105,7 +105,7 @@
   ['Lifting, botox i laminacja rzęs','kd','Brwi i rzęsy','r',K+'lifting-botox-laminacja-rzes/'],
   ['Przebicie uszu','kd','Kosmetyka','',K+'przebicie-uszu/']
   ];
-  var PG={'Geneo':'geneo.html','Infuzja tlenowa':'infuzja-tlenowa.html','Oxybrazja':'oksybrazja.html','Algowa regeneracja':'algowa-regeneracja.html','Oczyszczanie specjalistyczne':'oczyszczanie-specjalistyczne.html','Oczyszczanie wodorowe anty-ageing':'oczyszczanie-wodorowe.html','Masaż Kobido UP':'masaz-kobido-up.html','Zmarszczki mimiczne - toksyna botulinowa':'toksyna-botulinowa.html','Laser frakcyjny CO2':'laser-frakcyjny-co2.html','Oczyszczanie wodorowe':'oczyszczanie-wodorowe.html','Zimne mikrofale 2,45 GHz':'zimne-mikrofale.html','SlimOr Body':'slimor-body.html','Lipodermologia (endermologia)':'lipodermologia.html','Rzeźbiarz mięśni Magnetic Sculp':'magnetic-sculp.html','Fala uderzeniowa':'fala-uderzeniowa.html','Termolipoliza ciała RF':'termolipoliza-rf.html','Lipokawitacja ultradźwiękowa':'lipokawitacja.html','Maderoterapia':'maderoterapia.html','Kriolipoliza Lipo Freeze 4D':'kriolipoliza.html','Masaż Lomi Lomi z aromatyczną świecą':'masaz-lomi-lomi.html','Henna pudrowa z geometrią brwi':'henna-pudrowa.html','Popękane naczynia krwionośne':'problem-naczynka.html','Niwelowanie przebarwień':'problem-przebarwienia.html','Redukcja cellulitu':'problem-cellulit.html','Zabiegi na blizny potrądzikowe':'problem-blizny.html','Pielęgnacja okolic oka':'problem-okolice-oczu.html'};
+  var PG={'Geneo':'geneo.html','Infuzja tlenowa':'infuzja-tlenowa.html','Oksybrazja':'oksybrazja.html','Algowa regeneracja':'algowa-regeneracja.html','Oczyszczanie specjalistyczne':'oczyszczanie-specjalistyczne.html','Oczyszczanie wodorowe anty-ageing':'oczyszczanie-wodorowe.html','Masaż Kobido UP':'masaz-kobido-up.html','Zmarszczki mimiczne - toksyna botulinowa':'toksyna-botulinowa.html','Laser frakcyjny CO2':'laser-frakcyjny-co2.html','Oczyszczanie wodorowe':'oczyszczanie-wodorowe.html','Zimne mikrofale 2,45 GHz':'zimne-mikrofale.html','SlimOr Body':'slimor-body.html','Lipodermologia (endermologia)':'lipodermologia.html','Rzeźbiarz mięśni Magnetic Sculp':'magnetic-sculp.html','Fala uderzeniowa':'fala-uderzeniowa.html','Termolipoliza ciała RF':'termolipoliza-rf.html','Lipokawitacja ultradźwiękowa':'lipokawitacja.html','Maderoterapia':'maderoterapia.html','Kriolipoliza Lipo Freeze 4D':'kriolipoliza.html','Masaż Lomi Lomi z aromatyczną świecą':'masaz-lomi-lomi.html','Henna pudrowa z geometrią brwi':'henna-pudrowa.html','Popękane naczynia krwionośne':'problem-naczynka.html','Niwelowanie przebarwień':'problem-przebarwienia.html','Redukcja cellulitu':'problem-cellulit.html','Zabiegi na blizny potrądzikowe':'problem-blizny.html','Pielęgnacja okolic oka':'problem-okolice-oczu.html'};
   var CP={me:'medycyna-estetyczna.html',la:'zabiegi-laserowe.html',ks:'kosmetologia.html',ms:'modelowanie-sylwetki.html',sp:'relaks-spa.html',kd:'kosmetyka-dodatkowa.html',tp:'twoj-problem.html'};
   var NK={me:'Medycyna estetyczna',la:'Zabiegi laserowe',ks:'Kosmetologia',ms:'Modelowanie sylwetki',sp:'Relaks i SPA',kd:'Kosmetyka dodatkowa',tp:'Twój problem'};
   if(document.getElementById('lista')){
